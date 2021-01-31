@@ -5,64 +5,52 @@
     font-family: 'Roboto', sans-serif
 
 .container
-    width: 1140px
+    /** width: 1140px **/
     margin: 0 auto
 
 .main
-    padding: 50px 0 30px
-    background: url('../img/bg.jpg')
-    min-height: 720px
+    /** background: url('../img/bg.jpg') **/
+    /** min-height: 720px **/
 
 h1
+    display: none
     text-align: center
     text-transform: uppercase
     font-size: 50px
 
 .questWrapper
-    width: 600px
+    width: 320px
+    height: 635px
     margin: 0 auto
-
-.narration
-    padding: 10px 20px
-    width: 600px
-    min-height: 300px
-    margin: 0 auto
-    margin-top: 20px
     border: 3px solid black
     border-radius: 10px
-    background-color: #fffbfb85
+    background-color: #00000050
+
+.buttonWrapper
+    display: flex
+    justify-content: center
+    background-color: #000000bb
+    padding: 8px 0
+
+.narration
+    /** width: 100% **/
+    height: 570px
+    margin: 0 auto
+    margin: 5px
     color: #000000
     font-size: 22px
     &__btn
         font-size: 16px
         margin-top: 10px
 
-.text
-    padding: 10px 20px
-    width: 600px
-    min-height: 300px
-    margin: 0 auto
-    margin-top: 20px
-    background-color: #000000d0
-    color: white
-    font-size: 22px
-
 .startBtn
     display: block
-    margin: 0 auto
-    margin-top: 20px
     font-size: 22px
     width: 100px
     height: 40px
 
-.nextBtn
-    display: block
-    margin: 0 auto
-    font-size: 18px
-    width: 100px
-    height: 30px
-
 .footer
+    display: none
     height: 140px
     background-color: #000000f5
     &__wrapper
