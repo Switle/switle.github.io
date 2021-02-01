@@ -66,6 +66,7 @@ function scene() {
         }
         if (i >= textArr.length) {
             returnBtn.style.display = 'block';
+            narration.textContent = 'Конец';
         }
 
     };
