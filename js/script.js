@@ -81,7 +81,9 @@ function scene() {
         }
         if (i <= textArr.length) {
             startBtn.style.display = 'block';
+            returnBtn.style.display = 'none';
         }
+
     };
 
     returnBtn.onclick = function () {
