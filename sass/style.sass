@@ -1,7 +1,8 @@
 *
     margin: 0
     padding: 0
-    box-sizing: border-box
+    box-sizing: border
+    -box
     font-family: 'Roboto', sans-serif
 
 .container
@@ -26,7 +27,7 @@ h1
     margin: 0 auto
     border-left: 3px solid black
     border-right: 3px solid black
-    background-color: #00000050
+    background-color: #000000e0
 
 .buttonWrapper
     position: absolute
@@ -36,15 +37,15 @@ h1
     transform: translateX(50%)
     bottom: 0
     display: flex
-    justify-content: center
-    background-color: #000000bb
+    justify-content: space-around
+    background-color: #000000
 
 .narration
     /** width: 100% **/
     /** height: 570px **/
     margin: 0 auto
     margin: 0 5px
-    color: #000000
+    color: #ececec
     font-size: 22px
     &__btn
         font-size: 16px
@@ -55,6 +56,24 @@ h1
     font-size: 22px
     width: 100px
     height: 40px
+    background-color: #ececec
+    border-radius: 3px
+
+.backBtn
+    display: none
+    font-size: 22px
+    width: 100px
+    height: 40px
+    background-color: #ececec
+    border-radius: 3px
+
+.returnBtn
+    display: none
+    font-size: 22px
+    width: 100px
+    height: 40px
+    background-color: #ececec
+    border-radius: 3px
 
 .footer
     display: none
