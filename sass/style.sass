@@ -40,6 +40,22 @@ h1
     justify-content: space-around
     background-color: #000000
 
+.choiceWrapper
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    height: 90vh
+
+.choice1, .choice2, .choice3
+    margin: 0 auto
+    color: #ececec
+    font-size: 22px
+    &:hover
+        cursor: pointer
+        color: #ff0000
+    &:active
+        color: #90ff75
+
 .narration
     margin: 0 auto
     color: #ececec
@@ -52,6 +68,8 @@ h1
     height: 40px
     background-color: #ececec
     border-radius: 3px
+    &:active
+        background-color: #90ff75
 
 .backBtn
     display: none
@@ -60,6 +78,8 @@ h1
     height: 40px
     background-color: #ececec
     border-radius: 3px
+    &:active
+        background-color: #90ff75
 
 .returnBtn
     display: none
@@ -68,16 +88,5 @@ h1
     height: 40px
     background-color: #ececec
     border-radius: 3px
-
-.footer
-    display: none
-    height: 140px
-    background-color: #000000f5
-    &__wrapper
-        display: flex
-        justify-content: center
-        align-items: center
-    &__text
-        color: #fffbfb85
-        font-size: 30px
-        margin-top: 50px
+    &:active
+        background-color: #90ff75

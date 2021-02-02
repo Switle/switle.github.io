@@ -1,60 +1,66 @@
 let narration = document.querySelector('.narration'),
-    narrationBtn = document.querySelectorAll('.narration__btn'),
     questWrapper = document.querySelector('.questWrapper'),
     startBtn = document.querySelector('.startBtn'),
     backBtn = document.querySelector('.backBtn'),
     returnBtn = document.querySelector('.returnBtn');
 
-let textArr = ["Начало квеста",
+function createChoices() {
+
+    let choiceWrapper = document.createElement('div'),
+        choice1 = document.createElement('div'),
+        choice2 = document.createElement('div'),
+        choice3 = document.createElement('div');
+
+    choiceWrapper.classList.add('choiceWrapper');
+    choice1.classList.add('choice1');
+    choice2.classList.add('choice2');
+    choice3.classList.add('choice3');
+
+    narration.appendChild(choiceWrapper);
+    choiceWrapper.appendChild(choice1);
+    choiceWrapper.appendChild(choice2);
+    choiceWrapper.appendChild(choice3);
+
+    choice1.textContent = '111111111111111';
+    choice2.textContent = '222222222222222';
+    choice3.textContent = '333333333333333';
+}
+
+let opening = ["Начало квеста",
+    "Кнопки должны зеленеть при нажатии",
+    "В конце должны появиться 3 варианта выбора",
+    "Пока они просто забиты цифрами",
+    "При наведении они должны краснеть",
+    "А при нажатии зеленеть",];
+
+let storyline2 = ["Начало квеста",
     "1",
     "2",
     "3",
     "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "11",
-    "12"];
+    "5",];
 
-/* startBtn.onclick = function () { //не работает
-    startBtn.textContent = 'Далее';
-    for (let i = 0; i < textArr.length; i++) {
-        narration.textContent = textArr[i];
-    }
-}; */
+let storyline3 = ["Начало квеста",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",];
 
-/* for (let i = 0; i < textArr.length; i++) { //не работает
-    startBtn.onclick = function () {
-        narration.textContent = textArr[i];
-    };
-} */
+let storyline = opening;
 
-/* startBtn.onclick = function () { //не работает
-    narration.textContent = textArr[0];
-};
- */
-/* let i = 0; 
-    while (i < textArr.length) { //не работает
-        startBtn.onclick = function () {
-            narration.textContent = textArr[i];
-            i++;
-        };
-    } */
+let textArr = storyline;
 
-/* let i = 0;
-startBtn.onclick = function () { //Работает, и никакой цикл не нужен, чё я так парился
-    narration.textContent = textArr[i];
-    i++;
-    startBtn.textContent = 'Далее';
-}; */
+let lgth = storyline.length;
 
-function scene() {
+textArr.length = lgth;
+
+function control() {
     let i = 0;
-    startBtn.onclick = function () { //Работает, и никакой цикл не нужен, чё я так парился
+    let a = 0;
+    startBtn.onclick = function () {
         i++;
+        a++;
         narration.textContent = textArr[i];
         startBtn.textContent = 'Далее';
         console.log(i);
@@ -68,11 +74,14 @@ function scene() {
             returnBtn.style.display = 'block';
             narration.textContent = 'Конец';
         }
-
+        if (a == textArr.length) {
+            createChoices();
+        }
     };
 
     backBtn.onclick = function () {
         i--;
+        a--;
         narration.textContent = textArr[i];
         console.log(i);
         if (i < 1) {
@@ -88,6 +97,7 @@ function scene() {
 
     returnBtn.onclick = function () {
         i = 0;
+        a = 0;
         narration.textContent = textArr[i];
         console.log(i);
         if (i < 1) {
@@ -99,4 +109,4 @@ function scene() {
     };
 }
 
-scene();
+control();
