@@ -52,9 +52,7 @@ h1 {
 }
 
 .choiceWrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -95,6 +93,19 @@ h1 {
 }
 
 .startBtn:active {
+  background-color: #90ff75;
+}
+
+.nextBtn {
+  display: none;
+  font-size: 22px;
+  width: 100px;
+  height: 40px;
+  background-color: #ececec;
+  border-radius: 3px;
+}
+
+.nextBtn:active {
   background-color: #90ff75;
 }
 

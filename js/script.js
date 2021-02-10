@@ -1,10 +1,15 @@
 let narration = document.querySelector('.narration'),
     questWrapper = document.querySelector('.questWrapper'),
     startBtn = document.querySelector('.startBtn'),
+    nextBtn = document.querySelector('.nextBtn'),
     backBtn = document.querySelector('.backBtn'),
-    returnBtn = document.querySelector('.returnBtn');
+    returnBtn = document.querySelector('.returnBtn'),
+    choiceWrapper = document.querySelector('.choiceWrapper'),
+    choice1 = document.querySelector('.choice1'),
+    choice2 = document.querySelector('.choice2'),
+    choice3 = document.querySelector('.choice3');
 
-function createChoices() {
+/* function createChoices() {
 
     let choiceWrapper = document.createElement('div'),
         choice1 = document.createElement('div'),
@@ -24,89 +29,132 @@ function createChoices() {
     choice1.textContent = '111111111111111';
     choice2.textContent = '222222222222222';
     choice3.textContent = '333333333333333';
-}
+} */
 
 let opening = ["Начало квеста",
     "Кнопки должны зеленеть при нажатии",
     "В конце должны появиться 3 варианта выбора",
     "Пока они просто забиты цифрами",
     "При наведении они должны краснеть",
-    "А при нажатии зеленеть",];
+    "А при нажатии зеленеть",
+    {
+        choice1: 'Выбор 1',
+        choice2: 'Выбор 2',
+        choice3: 'Выбор 3',
+    }];
 
-let storyline2 = ["Начало квеста",
+let storyline2 = ["Второй массив",
     "1",
     "2",
     "3",
     "4",
-    "5",];
+    "5",
+    "6",
+    {
+        choice1: 'Выбор 11',
+        choice2: 'Выбор 22',
+        choice3: 'Выбор 33',
+    }];
 
-let storyline3 = ["Начало квеста",
+let storyline3 = ["Третий массив",
     "1",
     "2",
     "3",
     "4",
-    "5",];
+    "5",
+    "6",
+    "7",];
 
-let storyline = opening;
+let storyline4 = ["Третий массив",
+    "1",
+    "2",
+    "3",];
 
-let textArr = storyline;
-
-let lgth = storyline.length;
-
-textArr.length = lgth;
 
 function control() {
+
+    let storyline = opening;
+    let textArr = storyline;
+
+    function choices() {
+        choiceWrapper.style.display = 'flex';
+
+        function choi() {
+            i = 0;
+            textArr = storyline;
+            narration.textContent = textArr[i];
+            nextBtn.style.display = 'block';
+            returnBtn.style.display = 'none';
+            backBtn.style.display = 'none';
+            choiceWrapper.style.display = 'none';
+        }
+
+        choice1.onclick = choi;
+        choice2.onclick = choi;
+        choice3.onclick = choi;
+    }
+
+    function storyChoice() {
+        storyline = storyline2;
+        choice1.textContent = textArr[textArr.length - 1].choice1;
+        choice2.textContent = textArr[textArr.length - 1].choice2;
+        choice3.textContent = textArr[textArr.length - 1].choice3;
+    }
+
     let i = 0;
-    let a = 0;
-    startBtn.onclick = function () {
+
+    startBtn.style.display = 'none';
+    nextBtn.style.display = 'block';
+    narration.textContent = textArr[i];
+
+    nextBtn.onclick = function () {
         i++;
-        a++;
         narration.textContent = textArr[i];
-        startBtn.textContent = 'Далее';
         console.log(i);
         if (i >= 1) {
             backBtn.style.display = 'block';
         }
         if (i >= textArr.length) {
-            startBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
         }
         if (i >= textArr.length) {
             returnBtn.style.display = 'block';
-            narration.textContent = 'Конец';
+            /* narration.textContent = 'Конец'; */
         }
-        if (a == textArr.length) {
-            createChoices();
+        if (i == textArr.length) {
+            choices();
+            storyChoice();
+            console.log(textArr);
         }
     };
 
     backBtn.onclick = function () {
         i--;
-        a--;
         narration.textContent = textArr[i];
         console.log(i);
         if (i < 1) {
             backBtn.style.display = 'none';
-            startBtn.textContent = 'Старт';
+            /* startBtn.textContent = 'Старт'; */
         }
         if (i <= textArr.length) {
-            startBtn.style.display = 'block';
+            nextBtn.style.display = 'block';
             returnBtn.style.display = 'none';
+            choiceWrapper.style.display = 'none';
         }
 
     };
 
     returnBtn.onclick = function () {
         i = 0;
-        a = 0;
         narration.textContent = textArr[i];
         console.log(i);
         if (i < 1) {
             returnBtn.style.display = 'none';
             backBtn.style.display = 'none';
-            startBtn.style.display = 'block';
-            startBtn.textContent = 'Старт';
+            nextBtn.style.display = 'block';
+            choiceWrapper.style.display = 'none';
         }
     };
 }
 
-control();
+startBtn.onclick = control;
