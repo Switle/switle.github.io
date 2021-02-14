@@ -9,28 +9,6 @@ let narration = document.querySelector('.narration'),
     choice2 = document.querySelector('.choice2'),
     choice3 = document.querySelector('.choice3');
 
-/* function createChoices() {
-
-    let choiceWrapper = document.createElement('div'),
-        choice1 = document.createElement('div'),
-        choice2 = document.createElement('div'),
-        choice3 = document.createElement('div');
-
-    choiceWrapper.classList.add('choiceWrapper');
-    choice1.classList.add('choice1');
-    choice2.classList.add('choice2');
-    choice3.classList.add('choice3');
-
-    narration.appendChild(choiceWrapper);
-    choiceWrapper.appendChild(choice1);
-    choiceWrapper.appendChild(choice2);
-    choiceWrapper.appendChild(choice3);
-
-    choice1.textContent = '111111111111111';
-    choice2.textContent = '222222222222222';
-    choice3.textContent = '333333333333333';
-} */
-
 let opening = ["Начало квеста",
     "Кнопки должны зеленеть при нажатии",
     "В конце должны появиться 3 варианта выбора",
@@ -41,6 +19,7 @@ let opening = ["Начало квеста",
         choice1: 'Выбор 1',
         choice2: 'Выбор 2',
         choice3: 'Выбор 3',
+        storyline: '',
     }];
 
 let storyline2 = ["Второй массив",
@@ -70,7 +49,6 @@ let storyline4 = ["Третий массив",
     "2",
     "3",];
 
-
 function control() {
 
     let storyline = opening;
@@ -81,6 +59,7 @@ function control() {
 
         function choi() {
             i = 0;
+            narration.style.display = 'block';
             textArr = storyline;
             narration.textContent = textArr[i];
             nextBtn.style.display = 'block';
@@ -114,14 +93,14 @@ function control() {
         if (i >= 1) {
             backBtn.style.display = 'block';
         }
-        if (i >= textArr.length) {
+        if (i >= textArr.length - 1) {
             nextBtn.style.display = 'none';
         }
-        if (i >= textArr.length) {
+        if (i >= textArr.length - 1) {
             returnBtn.style.display = 'block';
-            /* narration.textContent = 'Конец'; */
         }
-        if (i == textArr.length) {
+        if (i == textArr.length - 1) {
+            narration.style.display = 'none';
             choices();
             storyChoice();
             console.log(textArr);
@@ -130,11 +109,11 @@ function control() {
 
     backBtn.onclick = function () {
         i--;
+        narration.style.display = 'block';
         narration.textContent = textArr[i];
         console.log(i);
         if (i < 1) {
             backBtn.style.display = 'none';
-            /* startBtn.textContent = 'Старт'; */
         }
         if (i <= textArr.length) {
             nextBtn.style.display = 'block';
@@ -146,6 +125,7 @@ function control() {
 
     returnBtn.onclick = function () {
         i = 0;
+        narration.style.display = 'block';
         narration.textContent = textArr[i];
         console.log(i);
         if (i < 1) {
